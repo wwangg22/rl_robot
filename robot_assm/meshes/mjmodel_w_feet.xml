@@ -1,0 +1,126 @@
+
+<mujoco model="robot_assm_feet">
+  <compiler angle="radian"/>
+  <option timestep="0.001"/>
+
+  <asset>
+    <mesh name="base_link" file="base_link.STL"/>
+    <mesh name="left_hip" file="left_hip.STL"/>
+    <mesh name="left_waist" file="left_waist.STL"/>
+    <mesh name="left_knee" file="left_knee.STL"/>
+    <mesh name="left_shin" file="left_shin_wball.STL"/>
+    <mesh name="left_back" file="left_back.STL"/>
+    <mesh name="right_hip" file="right_hip.STL"/>
+    <mesh name="right_waist" file="right_waist.STL"/>
+    <mesh name="right_knee" file="right_knee.STL"/>
+    <mesh name="right_shin" file="right_shin_wball.STL"/>
+    <mesh name="right_back" file="right_back.STL"/>
+    <texture type="skybox" builtin="gradient" rgb1=".3 .5 .7" rgb2="0 0 0" width="512" height="512"/>
+    <texture name="body" type="cube" builtin="flat" mark="cross" width="127" height="1278"
+             rgb1="0.8 0.6 0.4" rgb2="0.8 0.6 0.4" markrgb="1 1 1" random="0.01"/>
+    <material name="body" texture="body" texuniform="true" rgba="0.8 0.6 .4 1"/>
+    <texture name="grid" type="2d" builtin="checker" width="512" height="512" rgb1=".1 .2 .3" rgb2=".2 .3 .4"/>
+    <material name="grid" texture="grid" texrepeat="1 1" texuniform="true" reflectance=".2"/>
+  </asset>
+
+  <visual>
+    <map force="0.1" zfar="30"/>
+    <rgba haze="0.15 0.25 0.35 1"/>
+    <quality shadowsize="4096"/>
+    <global offwidth="800" offheight="800"/>
+  </visual>
+
+  <equality>
+    <connect name="leaf" 
+             body1="right_back" 
+             body2="right_shin" 
+             anchor="-0.095 0 0" 
+             active="true" 
+             solref="0.001 1"
+             solimp="0.99 0.99 0.01 0.5 0"/>
+  </equality>
+
+  <equality>
+    <connect name="leaf2" 
+             body1="left_back" 
+             body2="left_shin" 
+             anchor="0.095 0 0" 
+             active="true" 
+             solref="0.001 1"
+             solimp="0.99 0.99 0.01 0.5 0"/>
+  </equality>
+
+  <worldbody>
+    <geom name="floor" size="0 0 .05" type="plane" material="grid" condim="3" friction="2.0 0.005 0.0001"/>
+    
+    <!-- Lighting -->
+    <light name="spotlight" mode="targetbodycom" target="base_link" diffuse=".8 .8 .8" specular="0.3 0.3 0.3" pos="0 -20 4" cutoff="10"/>
+    <body name="base_link">
+      <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="base_link"/>
+      <freejoint name="root"/>
+      <inertial pos="-0.0139769026403795 0.0265526333105793 0.0944853278773791" 
+          mass="0.342105232586875" 
+          diaginertia="0.000147032969377036 0.000307207886711777 0.000262533853315791" />
+      <body name="left_hip" pos="-0.0057506 -0.045851 0.25252" quat="0.723658 0.690145 -0.00328577 0.00284885">
+        <inertial pos="-0.0266464 -0.048703 -0.00222574" quat="0.572296 0.377334 -0.612367 0.393832" mass="0.0775537" diaginertia="3.20582e-05 3.11288e-05 1.5915e-05"/>
+        <joint name="left_hip_joint" pos="0 0 0" axis="1 0 0" range="-0.15 1.0" />
+        <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="left_hip"/>
+        <body name="left_waist" pos="-0.023906 -0.07345 -0.0034844" quat="0.971831 -5.53828e-08 -0.0111677 0.235416">
+          <inertial pos="0.0217321 -0.024547 -0.00111669" quat="0.913576 0.19978 0.059188 0.349232" mass="0.0482342" diaginertia="1.55689e-05 1.06476e-05 9.9643e-06"/>
+          <joint name="left_waist_joint" pos="0 0 0" axis="0 0.0473858 -0.998877" range="-0.565 1.5"/>
+          <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="left_waist"/>
+          <body name="left_knee" pos="0.034383 -0.038833 -0.0018422" quat="0.946946 7.97283e-08 0.0152295 -0.321033">
+            <inertial pos="-0.0198558 -0.0369532 -0.00195501" quat="0.329308 0.379573 0.588739 0.63314" mass="0.0441986" diaginertia="2.64426e-05 2.3058e-05 9.74472e-06"/>
+            <joint name="left_knee_joint" pos="0 0 0" axis="0 0.0473858 -0.998877" range="-3.14 0.6"/>
+            <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="left_knee"/>
+            <body name="left_shin" pos="-0.096139 -0.08042 -0.003815" quat="0.996116 0.0235966 -0.00180528 0.0848129">
+              <inertial pos="0.0657 -0.044841 -0.00028892" quat="0.617571 0.612276 0.346917 0.351244" mass="0.085384" diaginertia="7.16367e-05 6.42934e-05 1.56239e-05"/>
+              <joint name="left_shin_joint" pos="0 0 0" axis="0.00041216 0 -1"/>
+              <geom name="left_shin" type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="left_shin"/>
+            </body>
+          </body>
+        </body>
+        <body name="left_back" pos="-0.053906 -0.07355 -0.0034891" quat="0.18953 -0.18075 0.698405 -0.666062">
+          <inertial pos="0.0475 3.28969e-05 1.05588e-09" quat="0 0.707107 0 0.707107" mass="0.0247297" diaginertia="2.42356e-05 2.40921e-05 1.40742e-06"/>
+          <joint name="left_back_joint" pos="0 0 0" axis="0 1 0" range="-1.29 2.0"/>
+          <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="left_back"/>
+        </body>
+      </body>
+      <body name="right_hip" pos="-0.0057908 -0.14355 0.25252" quat="0.723658 0.690145 -0.00328577 0.00284885">
+        <inertial pos="-0.0266464 -0.048703 -0.00222574" quat="0.572296 0.377334 -0.612367 0.393832" mass="0.0775537" diaginertia="3.20582e-05 3.11288e-05 1.5915e-05"/>
+        <joint name="right_hip_joint" pos="0 0 0" axis="1 0 0" range="-1.0 0.15" />
+        <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="right_hip"/>
+        <body name="right_waist" pos="-0.023906 -0.07345 -0.0034844" quat="0.971831 -5.53828e-08 -0.0111677 0.235416">
+          <inertial pos="0.0217321 -0.024547 -0.00111669" quat="0.913576 0.19978 0.059188 0.349232" mass="0.0482342" diaginertia="1.55689e-05 1.06476e-05 9.9643e-06"/>
+          <joint name="right_waist_joint" pos="0 0 0" axis="0 0.0473858 -0.998877" range="-0.565 1.5"/>
+          <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="right_waist"/>
+          <body name="right_knee" pos="0.034383 -0.038833 -0.0018422" quat="0.946946 3.23811e-08 0.0152295 -0.321033">
+            <inertial pos="-0.0198558 -0.0369532 -0.00195501" quat="0.329308 0.379573 0.588739 0.63314" mass="0.0441986" diaginertia="2.64426e-05 2.3058e-05 9.74472e-06"/>
+            <joint name="right_knee_joint" pos="0 0 0" axis="0 0.0473858 -0.998877" range="-3.14 0.6"/>
+            <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="right_knee"/>
+            <body name="right_shin" pos="-0.096139 -0.08042 -0.003815" quat="0.996115 0.0235966 -0.00180521 0.0848179">
+              <inertial pos="0.0656996 -0.0448408 -0.000352025" quat="0.617571 0.612276 0.346917 0.351245" mass="0.0853845" diaginertia="7.16367e-05 6.42932e-05 1.56243e-05"/>
+              <joint name="right_shin_joint" pos="0 0 0" axis="0.00041216 0 -1"/>
+              <geom name="right_shin" type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="right_shin"/>
+            </body>
+          </body>
+        </body>
+        <body name="right_back" pos="-0.053906 -0.07355 -0.0034891" quat="0.698399 -0.666061 -0.189543 0.180762">
+          <inertial pos="-0.0475 3.19969e-05 1.06292e-09" quat="0 0.707107 0 0.707107" mass="0.0247297" diaginertia="2.42356e-05 2.40921e-05 1.40742e-06"/>
+          <joint name="right_back_joint" pos="0 0 0" axis="0 1 0" range="-1.29 2.0"/>
+          <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="right_back"/>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+
+  <actuator>
+    <motor joint="right_hip_joint" ctrlrange="-1 1" ctrllimited="true" gear="1.6677"/>
+    <motor joint="left_hip_joint" ctrlrange="-1 1" ctrllimited="true" gear="1.6677"/>
+    <motor joint="right_knee_joint" ctrlrange="-1 1" ctrllimited="true" gear="1.6677"/>
+    <motor joint="left_knee_joint" ctrlrange="-1 1" ctrllimited="true" gear="1.6677"/>
+    <motor joint="right_waist_joint" ctrlrange="-1 1" ctrllimited="true" gear="1.6677"/>
+    <motor joint="left_waist_joint" ctrlrange="-1 1" ctrllimited="true" gear="1.6677"/>
+</actuator>
+
+</mujoco>

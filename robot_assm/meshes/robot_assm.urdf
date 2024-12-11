@@ -1,0 +1,743 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="robot_assm">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.0139769026403795 0.265526333105793 0.0944853278773791"
+        rpy="0 0 0" />
+      <mass
+        value="0.342105232586875" />
+      <inertia
+        ixx="0.000147032969377036"
+        ixy="-3.39990250749739E-06"
+        ixz="1.58397526879554E-06"
+        iyy="0.000307207886711777"
+        iyz="3.77269760009894E-07"
+        izz="0.000262533853315791" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_assm/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_assm/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="left_hip">
+    <inertial>
+      <origin
+        xyz="-0.0266464398627172 -0.0487029534047279 -0.00222573681260157"
+        rpy="0 0 0" />
+      <mass
+        value="0.0775537471149644" />
+      <inertia
+        ixx="2.86527841919447E-05"
+        ixy="-5.61439219355509E-06"
+        ixz="-2.69248576694227E-07"
+        iyy="1.84129112309286E-05"
+        iyz="-4.93835009739183E-07"
+        izz="3.20363767228084E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_assm/meshes/left_hip.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_assm/meshes/left_hip.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_hip_joint"
+    type="revolute">
+    <origin
+      xyz="-0.0057506 -0.045851 0.25252"
+      rpy="1.5234 -0.0086879 -0.00041216" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_hip" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="left_waist">
+    <inertial>
+      <origin
+        xyz="0.0217320763821877 -0.0245470106915568 -0.00111668722242897"
+        rpy="0 0 0" />
+      <mass
+        value="0.048234167942806" />
+      <inertia
+        ixx="1.33670448937219E-05"
+        ixy="2.49424393659825E-06"
+        ixz="-3.88242724993257E-08"
+        iyy="1.27311193815106E-05"
+        iyz="3.04215537749528E-07"
+        izz="1.00826597374149E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_assm/meshes/left_waist.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_assm/meshes/left_waist.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_waist_joint"
+    type="revolute">
+    <origin
+      xyz="-0.023906 -0.07345 -0.0034844"
+      rpy="-0.0052595 -0.021708 0.47538" />
+    <parent
+      link="left_hip" />
+    <child
+      link="left_waist" />
+    <axis
+      xyz="0 0.047386 -0.99888" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="left_knee">
+    <inertial>
+      <origin
+        xyz="-0.0198557689433771 -0.0369531658105977 -0.0019550108783845"
+        rpy="0 0 0" />
+      <mass
+        value="0.0441985811296222" />
+      <inertia
+        ixx="1.38473989103313E-05"
+        ixy="-7.17606454434958E-06"
+        ixz="-3.70894075482596E-07"
+        iyy="2.23152956240748E-05"
+        iyz="1.48780194566254E-07"
+        izz="2.3082608046557E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_assm/meshes/left_knee.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_assm/meshes/left_knee.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_knee_joint"
+    type="revolute">
+    <origin
+      xyz="0.034383 -0.038833 -0.0018422"
+      rpy="-0.0097824 0.028847 -0.65386" />
+    <parent
+      link="left_waist" />
+    <child
+      link="left_knee" />
+    <axis
+      xyz="0 0.047386 -0.99888" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="left_shin">
+    <inertial>
+      <origin
+        xyz="0.022816369090084 -0.0391662817093311 -0.00163528458899556"
+        rpy="0 0 0" />
+      <mass
+        value="0.0439275627048101" />
+      <inertia
+        ixx="4.43332916364424E-05"
+        ixy="2.49540582346355E-05"
+        ixz="9.39175592382479E-07"
+        iyy="2.6610012622497E-05"
+        iyz="-1.00328997467137E-06"
+        izz="5.54395983025359E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_assm/meshes/left_shin.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_assm/meshes/left_shin.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_shin_joint"
+    type="revolute">
+    <origin
+      xyz="-0.096139 -0.08042 -0.003815"
+      rpy="-0.0080253 -0.026397 0.59026" />
+    <parent
+      link="left_knee" />
+    <child
+      link="left_shin" />
+    <axis
+      xyz="0 0.047386 -0.99888" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="left_feet">
+    <inertial>
+      <origin
+        xyz="0.00745639827834567 -0.0238756609100523 -0.00122293639956458"
+        rpy="0 0 0" />
+      <mass
+        value="0.0699306839202348" />
+      <inertia
+        ixx="1.95078255048886E-05"
+        ixy="-4.43221223565742E-07"
+        ixz="-3.52533428067853E-08"
+        iyy="2.72967275980689E-05"
+        iyz="4.3015814048971E-07"
+        izz="2.13517537765951E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_assm/meshes/left_feet.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_assm/meshes/left_feet.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_feet_joint"
+    type="revolute">
+    <origin
+      xyz="0.053196 -0.084582 -0.0040125"
+      rpy="-0.0046241 0.020427 -0.44523" />
+    <parent
+      link="left_shin" />
+    <child
+      link="left_feet" />
+    <axis
+      xyz="0 0.047386 -0.99888" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="left_back">
+    <inertial>
+      <origin
+        xyz="0.0475000001831978 3.28968627532691E-05 1.05587896759296E-09"
+        rpy="0 0 0" />
+      <mass
+        value="0.0247297432505877" />
+      <inertia
+        ixx="1.40742375867267E-06"
+        ixy="-8.00664250736908E-13"
+        ixz="1.46721638752395E-11"
+        iyy="2.40920516193063E-05"
+        iyz="2.40041498949377E-12"
+        izz="2.42356028612632E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_assm/meshes/left_back.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_assm/meshes/left_back.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_back_joint"
+    type="revolute">
+    <origin
+      xyz="-0.053906 -0.07355 -0.0034891"
+      rpy="-1.6117 0.023958 -2.6121" />
+    <parent
+      link="left_hip" />
+    <child
+      link="left_back" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="right_hip">
+    <inertial>
+      <origin
+        xyz="-0.0266464398627177 -0.0487029534047279 -0.00222573681260158"
+        rpy="0 0 0" />
+      <mass
+        value="0.0775537471149643" />
+      <inertia
+        ixx="2.86527841919447E-05"
+        ixy="-5.61439219355508E-06"
+        ixz="-2.69248576694201E-07"
+        iyy="1.84129112309285E-05"
+        iyz="-4.93835009739165E-07"
+        izz="3.20363767228084E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_assm/meshes/right_hip.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_assm/meshes/right_hip.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_hip_joint"
+    type="revolute">
+    <origin
+      xyz="-0.0057908 -0.14355 0.25252"
+      rpy="1.5234 -0.0086879 -0.00041216" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_hip" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="right_waist">
+    <inertial>
+      <origin
+        xyz="0.0217320763821862 -0.0245470106915548 -0.00111668722242186"
+        rpy="0 0 0" />
+      <mass
+        value="0.04823416794281" />
+      <inertia
+        ixx="1.3367044893725E-05"
+        ixy="2.49424393659778E-06"
+        ixz="-3.88242725016023E-08"
+        iyy="1.27311193815137E-05"
+        iyz="3.04215537752736E-07"
+        izz="1.00826597374154E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_assm/meshes/right_waist.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_assm/meshes/right_waist.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_waist_joint"
+    type="revolute">
+    <origin
+      xyz="-0.023906 -0.07345 -0.0034844"
+      rpy="-0.0052595 -0.021708 0.47538" />
+    <parent
+      link="right_hip" />
+    <child
+      link="right_waist" />
+    <axis
+      xyz="0 0.047386 -0.99888" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="right_knee">
+    <inertial>
+      <origin
+        xyz="-0.0198557678646841 -0.0369531653828945 -0.00195501102737825"
+        rpy="0 0 0" />
+      <mass
+        value="0.0441985786140736" />
+      <inertia
+        ixx="1.38473986078516E-05"
+        ixy="-7.17606435701377E-06"
+        ixz="-3.70894019351219E-07"
+        iyy="2.23152954400465E-05"
+        iyz="1.48780284833403E-07"
+        izz="2.30826076351091E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_assm/meshes/right_knee.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_assm/meshes/right_knee.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_knee_joint"
+    type="revolute">
+    <origin
+      xyz="0.034383 -0.038833 -0.0018422"
+      rpy="-0.0097825 0.028847 -0.65386" />
+    <parent
+      link="right_waist" />
+    <child
+      link="right_knee" />
+    <axis
+      xyz="0 0.047386 -0.99888" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="right_shin">
+    <inertial>
+      <origin
+        xyz="0.022816370261301 -0.0391663254325022 -0.0016343857675134"
+        rpy="0 0 0" />
+      <mass
+        value="0.043927560581449" />
+      <inertia
+        ixx="4.43332897719457E-05"
+        ixy="2.49540564407675E-05"
+        ixz="9.39175382236945E-07"
+        iyy="2.66100108602179E-05"
+        iyz="-1.0032897571074E-06"
+        izz="5.54395947167578E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_assm/meshes/right_shin.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_assm/meshes/right_shin.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_shin_joint"
+    type="revolute">
+    <origin
+      xyz="-0.096139 -0.08042 -0.003815"
+      rpy="-0.0080253 -0.026397 0.59026" />
+    <parent
+      link="right_knee" />
+    <child
+      link="right_shin" />
+    <axis
+      xyz="0 0.047386 -0.99888" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="right_feet">
+    <inertial>
+      <origin
+        xyz="0.00745639829290982 -0.0238757035509446 -0.00122203738749097"
+        rpy="0 0 0" />
+      <mass
+        value="0.0699306838117589" />
+      <inertia
+        ixx="1.95078254719426E-05"
+        ixy="-4.43221240406426E-07"
+        ixz="-3.52533140282475E-08"
+        iyy="2.72967275396576E-05"
+        iyz="4.30158126948092E-07"
+        izz="2.13517537329304E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_assm/meshes/right_feet.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_assm/meshes/right_feet.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_feet_joint"
+    type="revolute">
+    <origin
+      xyz="0.053196 -0.084582 -0.0040125"
+      rpy="-0.0046242 0.020427 -0.44523" />
+    <parent
+      link="right_shin" />
+    <child
+      link="right_feet" />
+    <axis
+      xyz="0 0.047386 -0.99888" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="right_back">
+    <inertial>
+      <origin
+        xyz="-0.0474999997650337 3.19968648987701E-05 1.06292036283762E-09"
+        rpy="0 0 0" />
+      <mass
+        value="0.0247297432555373" />
+      <inertia
+        ixx="1.40742375847957E-06"
+        ixy="-8.01626970999127E-13"
+        ixz="1.46723653249772E-11"
+        iyy="2.40920516207487E-05"
+        iyz="2.40089377330921E-12"
+        izz="2.42356028636175E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_assm/meshes/right_back.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_assm/meshes/right_back.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_back_joint"
+    type="revolute">
+    <origin
+      xyz="-0.053906 -0.07355 -0.0034891"
+      rpy="-1.5299 -0.023958 0.52953" />
+    <parent
+      link="right_hip" />
+    <child
+      link="right_back" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+</robot>

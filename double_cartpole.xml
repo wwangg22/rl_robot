@@ -1,0 +1,50 @@
+<mujoco model="cart_pole">
+  <!-- Options -->
+  <option timestep="0.01"/>
+
+  <!-- Assets -->
+  <asset>
+    <texture type="skybox" builtin="gradient" rgb1=".93 .74 .4" rgb2="0 0 0" width="512" height="512"/>
+    <material name="cart_material" rgba="0 1 0 1"/>
+    <material name="pole_material" rgba="1 0 0 1"/>
+    <material name="sphere_material" rgba="0 0 0 1"/>
+    <material name="end_material" rgba="0 0 1 1"/>
+  </asset>
+
+  <!-- World body -->
+  <worldbody>
+
+    <!-- Cart -->
+    <body name="cart" pos="0 0 0">
+      <geom type="box" size="0.3 0.15 0.15" material="cart_material" mass="1"/>
+
+      <!-- Prismatic joint for the cart -->
+      <joint name="x" type="slide" axis="1 0 0" limited="false"/>
+
+      <!-- First Pole attached to the cart -->
+      <body name="pole1" pos="0 0 0">
+        <!-- Restore the original length of the first pole -->
+        <geom type="cylinder" fromto="0 0 0 0 0 1.0" size="0.01" material="pole_material" mass="0" contype="0" conaffinity="0"/>
+        <geom type="sphere" pos="0 0 1.0" size="0.05" material="end_material" mass="1" contype="0" conaffinity="0"/>
+
+        <!-- Hinge joint for the first pole -->
+        <joint name="theta1" type="hinge" axis="0 1 0" range="-inf inf"/>
+
+        <!-- Second Pole attached to the end of the first pole -->
+        <body name="pole2" pos="0 0 1.0">
+          <!-- Disable collision for the second pole as well -->
+          <geom type="cylinder" fromto="0 0 0 0 0 1.0" size="0.01" material="pole_material" mass="0" contype="0" conaffinity="0"/>
+          <geom type="sphere" pos="0 0 1.0" size="0.05" material="end_material" mass="1" contype="0" conaffinity="0"/>
+
+          <!-- Hinge joint for the second pole -->
+          <joint name="theta2" type="hinge" axis="0 1 0" range="-inf inf"/>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+
+  <!-- Actuation -->
+  <actuator>
+    <general name="cart_motor" joint="x" ctrlrange="-300 300"/>
+  </actuator>
+</mujoco>
